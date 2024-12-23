@@ -1,9 +1,9 @@
 # price and discount
 
-def calculate_discount(price: int, discount_percent: int)-> int:
+def calculate_discount(price: int, discount_percent: int)-> float:
     if discount_percent >= 20:
-        new_price = price * ((100 - 20) // 100) # round down to nearest whole number. eg 15 // 2 = 7
-        return new_price
+        new_price = price * ((100 - discount_percent) / 100) 
+        return round(new_price, 2)
     else:
         return price
     
@@ -37,3 +37,5 @@ while validation_result != "iko sawa":
     discount_percent = input("Discount percentage: ")
     validation_result = validate_user_inputs(price, discount_percent)
 
+# calculate price
+print(f"Final price = {calculate_discount(int(price), int(discount_percent))}")
